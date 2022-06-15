@@ -1,0 +1,141 @@
+{% load static %}
+<!-- This example requires Tailwind CSS v2.0+ -->
+<!--
+  This example requires updating your template:
+
+  ```
+  <html class="h-full bg-gray-100">
+  <body class="h-full">
+  ```
+-->
+<nav class="bg-white" x-data="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center">
+        <div class="flex-shrink-0">
+          <img class="h-8 w-8" src="{% static 'frontend/images/vip_consulting_logo.png' %}"
+            alt="vip consulting logo" />
+        </div>
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-4">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <!-- <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+              aria-current="page">Dashboard</a> -->
+
+            <template x-for="link in links" :key="link.name">
+              <a :href="link.url"
+                class="text-gray-800 hover:bg-primary hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                x-text="link.name"></a>
+            </template>
+
+
+            {%include 'components/button.html' with text="Book Now" href="/book-consultation"%}
+
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="-mr-2 flex md:hidden text-2xl" @click="open_sidenav=true">
+        <!-- Mobile menu button -->
+        <i class="lni lni-menu"></i>
+      </div>
+    </div>
+
+    <div class="fixed top-0  right-0 w-0 overflow-x-hidden h-full bg-primary" :class="{ 'w-2/4': open_sidenav }">
+
+    </div>
+
+    <div class="fixed inset-0 hidden">
+      <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity">
+
+        </div>
+        <div>
+          Hello world
+        </div>
+      </div>
+    </div>
+
+    <!-- This example requires Tailwind CSS v2.0+ -->
+    <div x-show="open_sidenav" class="fixed inset-0 overflow-hidden" aria-labelledby="slide-over-title" role="dialog"
+      aria-modal="true">
+      <div class="absolute inset-0 overflow-hidden">
+        <!--
+        Background overlay, show/hide based on slide-over state.
+
+        Entering: "ease-in-out duration-500"
+        From: "opacity-0"
+        To: "opacity-100"
+        Leaving: "ease-in-out duration-500"
+        From: "opacity-100"
+        To: "opacity-0"
+        -->
+        <div class="absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+        <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+          <!--
+        Slide-over panel, show/hide based on slide-over state.
+
+        Entering: "transform transition ease-in-out duration-500 sm:duration-700"
+          From: "translate-x-full"
+          To: "translate-x-0"
+        Leaving: "transform transition ease-in-out duration-500 sm:duration-700"
+          From: "translate-x-0"
+          To: "translate-x-full"
+        -->
+          <div class="pointer-events-auto relative w-screen max-w-md">
+            <!--
+          Close button, show/hide based on slide-over state.
+
+          Entering: "ease-in-out duration-500"
+            From: "opacity-0"
+            To: "opacity-100"
+          Leaving: "ease-in-out duration-500"
+            From: "opacity-100"
+            To: "opacity-0"
+        -->
+            <div class="absolute top-0 left-0 -ml-8 flex pt-4 pr-2 sm:-ml-10 sm:pr-4">
+              <button type="button"
+                class="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white">
+                <span class="sr-only">Close panel</span>
+                <!-- Heroicon name: outline/x -->
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <div class="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl">
+              <div class="px-4 sm:px-6">
+                <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">Panel title</h2>
+              </div>
+              <div class="relative mt-6 flex-1 px-4 sm:px-6">
+                <!-- Replace with your content -->
+                <div class="absolute inset-0 px-4 sm:px-6">
+                  <div class="h-full border-2 border-dashed border-gray-200" aria-hidden="true"></div>
+                </div>
+                <!-- /End replace -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+</nav>
+
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('navbar', () => ({
+      links: [
+        { name: 'Home', url: '/' },
+        { name: 'About', url: '/about' },
+        { name: 'Services', url: '/services' },
+
+      ],
+      open_sidenav: false,
+    }))
+  })
+</script>

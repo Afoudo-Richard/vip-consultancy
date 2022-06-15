@@ -1,0 +1,12 @@
+software used
+
+- python django
+
+javascript libraries
+ - alphine js
+    - official website: https://alpinejs.dev/start-here
+    - <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+ - iodine js
+    - description: this is used for form validation
+    - repository link: https://github.com/mattkingshott/iodine
+    - <script src="https://cdn.jsdelivr.net/gh/mattkingshott/iodine/dist/iodine.min.js" defer></script>

@@ -1,0 +1,27 @@
+{% load tailwind_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/jpg" href="{% static "frontend/images/vip_consulting_logo.png" %}"/>
+    {% tailwind_css %}
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mattkingshott/iodine/dist/iodine.min.js" defer></script>
+    <title>VIP CONSULTING</title>
+</head>
+
+<body>
+    {%include 'components/navbar.html'%}
+    
+    {%block content%}
+    {% endblock %}
+
+    {%include 'components/footer.html'%}
+</body>
+
+</html>
