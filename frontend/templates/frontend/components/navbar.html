@@ -1,13 +1,4 @@
 {% load static %}
-<!-- This example requires Tailwind CSS v2.0+ -->
-<!--
-  This example requires updating your template:
-
-  ```
-  <html class="h-full bg-gray-100">
-  <body class="h-full">
-  ```
--->
 <nav class="bg-white" x-data="navbar">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
@@ -29,7 +20,7 @@
             </template>
 
 
-            {%include 'components/button.html' with text="Book Now" href="/book-consultation"%}
+            {%include 'frontend/components/button.html' with text="Book Now" href="/book-consultation"%}
 
           </div>
         </div>
@@ -133,6 +124,7 @@
         { name: 'Home', url: '/' },
         { name: 'About', url: '/about' },
         { name: 'Services', url: '/services' },
+        { name: 'Blog', url: '/blog' },
 
       ],
       open_sidenav: false,

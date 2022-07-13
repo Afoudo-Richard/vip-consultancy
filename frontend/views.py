@@ -7,15 +7,18 @@ from django.template.loader import render_to_string
 
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'frontend/index.html')
 
 
 def about(request):
-    return render(request, 'about.html')
+    return render(request, 'frontend/about.html')
 
 
 def login(request):
-    return render(request, 'login.html')
+    return render(request, 'frontend/login.html')
+
+def blog(request):
+    return render(request, 'frontend/blog.html')
 
 
 def book_consultation(request):
